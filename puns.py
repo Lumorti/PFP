@@ -97,6 +97,8 @@ def similiarity(phonemes1, phonemes2):
         return 2
 
     # Check for partial
+    if " ".join("phonemes2") in " ".join("phonemes1"):
+        return 1
 
     # Otherwise no similiarity
     return 0
