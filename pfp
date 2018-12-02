@@ -10,6 +10,10 @@ wordFolder = "./dicts/"
 phraseFolder = "./phrases/"
 
 verbose = 0
+monochrome = False
+listAll = False
+quiet = False
+justChecking = False
 
 # Load a list of phrases by filename, turning each into phonemes
 def loadPhrases(filename):
@@ -66,7 +70,7 @@ def determinePronunciation(phrase):
 
         elif word not in [".", "!", "?", ",", ":"]:
 
-            print("unknown word: " + word)
+            if not quiet: print("unknown word: " + word)
             phonemes.append([])
 
         else:
@@ -136,18 +140,27 @@ def generatePuns(word):
 def processArgs(argsList):
 
     global verbose
+    global listAll
+    global monochrome
+    global quiet
+    global justChecking
 
     i = 0
     while i < len(argsList):
 
         if argsList[i] in ["-h", "--help", "-help", "--h"]:
 
-            print("[word]            generates a list of puns using this word")
-            print("-h                print this message")
+            print("pfp [word]        generates a list of puns using this word")
+            print("Optional flags:")
+            print("-h                print this help message")
             print("-d [directory]    specify the dictionary directory")
             print("-p [directory]    specify the phrase directory")
+            print("-l                list extra info about each pun")
+            print("-m                monochrome, don't use colour output")
+            print("-c                check, just check the files for errors, don't generate puns")
+            print("-q                quiet, don't print unknown word messages")
             print("-v                verbose output")
-            print("-v2               extra verbose output")
+            print("-vv               extra verbose output, warning: outputs a lot")
             return False
 
         elif argsList[i] in ["-w"]:
@@ -172,18 +185,26 @@ def processArgs(argsList):
 
             else: print("ERROR - not a valid directory: " + argsList[i+1])
 
-        elif argsList[i] in ["-v"]:
+        elif argsList[i] in ["-v"]: verbose += 1
+        elif argsList[i] in ["-m"]: monochrome = True
+        elif argsList[i] in ["-l"]: listAll = True
+        elif argsList[i] in ["-q"]: quiet = True
+        elif argsList[i] in ["-c"]: justChecking = True
 
-            verbose = 1
+        # If mutliple options are given as one flag, split them and recurse
+        elif argsList[i][0] == "-":
 
-        elif argsList[i] in ["-v2"]:
+            newArgString = ""
+            for char in argsList[i][1:]:
 
-            verbose = 2
+                if char not in ["m", "l", "q", "v", ]:
 
-        elif "-" in argsList[i]:
+                    print("ERROR - not a valid flag: -" + char)
+                    return False
 
-            print("ERROR - not a valid argument: " + argsList[i])
-            return False
+                newArgString += "-" + char + " "
+
+            processArgs(newArgString.strip().split())
 
         i += 1
 
@@ -219,9 +240,23 @@ if __name__ == "__main__":
     if verbose >= 1:
         print("Loaded " + str(len(wordList)) + " words")
         print("Loaded " + str(len(phraseList)) + " phrases")
+
+    if justChecking: exit()
+
+    if verbose >= 1:
         print("Generating puns for: " + wordToUse)
 
     # Generate puns and output
     puns = generatePuns(wordToUse)
+
     for pun in puns:
-        print(str(pun))
+
+        colorCode = ""
+        if not monochrome:
+
+            if pun["similiarity"] == 3: colorCode = "\033[95m"
+            elif pun["similiarity"] == 2: colorCode = "\033[92m"
+            elif pun["similiarity"] == 1: colorCode = "\033[93m"
+
+        if listAll: print(colorCode + str(pun))
+        else: print(colorCode + str(pun["pun"]))
