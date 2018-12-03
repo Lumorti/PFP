@@ -9,11 +9,20 @@ wordList = {}
 wordFolder = "./dicts/"
 phraseFolder = "./phrases/"
 
+badSwaps = ["that", "the"]
+
 verbose = 0
 monochrome = False
 listAll = False
 quiet = False
 justChecking = False
+
+brightRed = "\033[91m"
+brightGreen = "\033[92m"
+brightYellow = "\033[93m"
+normalRed = "\033[31m"
+normalGreen = "\033[32m"
+normalYellow = "\033[33m"
 
 # Load a list of phrases by filename, turning each into phonemes
 def loadPhrases(filename):
@@ -86,7 +95,7 @@ def similiarity(phonemes1, phonemes2):
 
     # Check for same
     if "".join(phonemes1) == "".join(phonemes2):
-        return 3
+        return 2
 
     # Check for rhyme
     i = 1
@@ -98,7 +107,7 @@ def similiarity(phonemes1, phonemes2):
         i += 1
 
     if (same >= 2) or (same >= 1 and shorterLength <= 2 and len(phonemes1) == len(phonemes2)):
-        return 2
+        return 1 + same
 
     # Check for partial
     if " ".join("phonemes2") in " ".join("phonemes1"):
@@ -126,9 +135,11 @@ def generatePuns(word):
 
             if sim >= 1:
 
-                punText = phrase["original"].replace(phrase["words"][j], word)
+                if phrase["words"][j] in badSwaps: sim = 1
+
+                punText = phrase["original"].replace(phrase["words"][j], word).replace(phrase["words"][j].capitalize(), word)
                 punText = punText[0].capitalize() + punText[1:]
-                pun = {"pun": punText, "similiarity": sim, "origin": phrase["origin"], "file": phrase["file"]}
+                pun = {"pun": punText, "similiarity": sim, "origin": phrase["origin"], "originalWord": phrase["words"][j], "file": phrase["file"]}
                 punList.append(pun)
                 break
 
@@ -150,17 +161,22 @@ def processArgs(argsList):
 
         if argsList[i] in ["-h", "--help", "-help", "--h"]:
 
-            print("pfp [word]        generates a list of puns using this word")
-            print("Optional flags:")
-            print("-h                print this help message")
-            print("-d [directory]    specify the dictionary directory")
-            print("-p [directory]    specify the phrase directory")
-            print("-l                list extra info about each pun")
-            print("-m                monochrome, don't use colour output")
-            print("-c                check, just check the files for errors, don't generate puns")
-            print("-q                quiet, don't print unknown word messages")
-            print("-v                verbose output")
-            print("-vv               extra verbose output, warning: outputs a lot")
+            print("---------------------------------------------------------------------")
+            print("                               Usage")
+            print("---------------------------------------------------------------------")
+            print(" pfp [<flags>] <word>   generates a list of puns using this word")
+            print("---------------------------------------------------------------------")
+            print("                           Optional Flags")
+            print("---------------------------------------------------------------------")
+            print(" -h                   print this help message")
+            print(" -d <directory>       specify the dictionary directory")
+            print(" -p <directory>       specify the phrase directory")
+            print(" -l                   list extra info about each pun")
+            print(" -m                   monochrome, don't use colour output")
+            print(" -c                   check, just check the files for errors, no puns")
+            print(" -q                   quiet, don't print unknown word messages")
+            print(" -v                   verbose output")
+            print(" -vv                  extra verbose output, warning: outputs a lot")
             return False
 
         elif argsList[i] in ["-w"]:
@@ -210,6 +226,10 @@ def processArgs(argsList):
 
     return True
 
+def sortFunction(pun):
+
+    return - 10000 * pun["similiarity"] + len(pun["pun"])
+
 if __name__ == "__main__":
 
     # Ensure a word is given
@@ -248,15 +268,24 @@ if __name__ == "__main__":
 
     # Generate puns and output
     puns = generatePuns(wordToUse)
+    puns.sort(key=sortFunction)
 
     for pun in puns:
 
         colorCode = ""
         if not monochrome:
 
-            if pun["similiarity"] == 3: colorCode = "\033[95m"
-            elif pun["similiarity"] == 2: colorCode = "\033[92m"
-            elif pun["similiarity"] == 1: colorCode = "\033[93m"
+            if pun["similiarity"] == 6: colorCode = brightGreen
+            elif pun["similiarity"] == 5: colorCode = normalGreen
+            elif pun["similiarity"] == 4: colorCode = brightYellow
+            elif pun["similiarity"] == 3: colorCode = normalYellow
+            elif pun["similiarity"] == 2: colorCode = brightRed
+            elif pun["similiarity"] == 1: colorCode = normalRed
 
-        if listAll: print(colorCode + str(pun))
-        else: print(colorCode + str(pun["pun"]))
+        if listAll:
+
+            print(colorCode + str(pun["pun"]) + " (replaced '" + str(pun["originalWord"]) + "' - origin: " + str(pun["origin"]) + ")")
+
+        else:
+
+            print(colorCode + str(pun["pun"]))

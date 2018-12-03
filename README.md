@@ -1,5 +1,6 @@
 # PFP
-A tool for generating puns from a certain word.
+Pun Forrest, Pun!
+A command line tool for generating puns from a certain word.
 
 ### Dependancies
 
@@ -24,17 +25,17 @@ The phrases folder initially comes with several files containing many common Eng
 Use hashes to state where the following phrases should come from, as follows:
 
 ```
-# [Movie 1 Title]
-[Quote from movie 1]
-[Different quote from movie 1]
+# <Movie 1 Title>
+<Quote from movie 1>
+<Different quote from movie 1>
 
-# [Movie 2 Title]
-[Quote from movie 2]
-[Different quote from movie 2]
+# <Movie 2 Title>
+<Quote from movie 2>
+<Different quote from movie 2>
 
 # English Idiom
-[Some English idiom]
+<Some English idiom>
 
-# [Song Name]
-[Famous lyric from this song]
+# <Song Name>
+<Famous lyric from this song>
 ```

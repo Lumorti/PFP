@@ -6,6 +6,19 @@ Chewie, were home.
 Help me, Obi-Wan Kenobi. You're my only hope.
 In a galaxy, far, far away.
 Use the force, Luke!
+Execute order sixty six.
+It's a trap!
+I hate sand, it's coarse and it gets everywhere.
+
+# Harry Potter
+You're a wizard harry!
+We could've been killed, or worse, expelled.
+
+# Blade Runner
+Like tears in rain.
+
+# Babe
+That'll do pig, that'll do.
 
 # Dirty Harry
 You feeling lucky, punk?
@@ -13,6 +26,9 @@ Go ahead, make my day.
 
 # James Bond
 Bond. James Bond.
+
+# The Wizard of Oz
+Follow the yellow brick road.
 
 # Lord of the Rings
 My precious!
@@ -31,6 +47,7 @@ Here's Johnny!
 
 # Star Trek
 Live long and prosper.
+Beam me up, Scotty!
 
 # Toy Story
 To infinity and beyond!
@@ -38,8 +55,12 @@ To infinity and beyond!
 # 300
 THIS IS SPARTA!
 
+# Top Gun
+I feel the need, the need for speed.
+
 # Forrest Gump
 Run, Forrest, run!
+Life is like a box of chocolates. You never know what you're gonna get.
 
 # The Matrix
 I know kung fu.
@@ -97,6 +118,12 @@ SHOW ME THE MONEY!!!
 # A Few Good Men
 You can't handle the truth!
 
+# Back to the Future
+Where we're going, we don't need roads.
+
+# Apocalypse Now
+I love the smell of napalm in the morning.
+
 # Batman
 Why so serious?
 
@@ -107,3 +134,7 @@ I'm sorry Dave, I'm afraid I can't let you do that.
 # Pulp Fiction
 They call it a Royale with Cheese.
 Say what again. Say what again.
+
+# Monty Python
+Nobody expects the Spanish inquisition!
+Your mother was a hamster, and your father smelt of elderberries!
