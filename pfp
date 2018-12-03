@@ -107,7 +107,7 @@ def similiarity(phonemes1, phonemes2):
         i += 1
 
     if (same >= 2) or (same >= 1 and shorterLength <= 2 and len(phonemes1) == len(phonemes2)):
-        return 1 + same
+        return 3
 
     # Check for partial
     if " ".join("phonemes2") in " ".join("phonemes1"):
@@ -135,7 +135,7 @@ def generatePuns(word):
 
             if sim >= 1:
 
-                if phrase["words"][j] in badSwaps: sim = 1
+                if phrase["words"][j].lower() in badSwaps: sim = 1
 
                 punText = phrase["original"].replace(phrase["words"][j], word).replace(phrase["words"][j].capitalize(), word)
                 punText = punText[0].capitalize() + punText[1:]
@@ -275,12 +275,9 @@ if __name__ == "__main__":
         colorCode = ""
         if not monochrome:
 
-            if pun["similiarity"] == 6: colorCode = brightGreen
-            elif pun["similiarity"] == 5: colorCode = normalGreen
-            elif pun["similiarity"] == 4: colorCode = brightYellow
-            elif pun["similiarity"] == 3: colorCode = normalYellow
-            elif pun["similiarity"] == 2: colorCode = brightRed
-            elif pun["similiarity"] == 1: colorCode = normalRed
+            if pun["similiarity"] == 3: colorCode = brightGreen
+            elif pun["similiarity"] == 2: colorCode = brightYellow
+            elif pun["similiarity"] == 1: colorCode = brightRed
 
         if listAll:
 
