@@ -19,7 +19,7 @@ sudo make uninstall
 
 To run PFP to generate a normal list of puns from a word:
 ```bash
-pfp <word to make puns from>
+pfp <word>
 ```
 
 To view the command help use:
