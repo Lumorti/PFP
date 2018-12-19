@@ -1,21 +1,30 @@
 # PFP
-Pun Forrest, Pun!
+Pun, Forrest, Pun!
+
 A command line tool for generating puns from a certain word.
 
-### Dependancies
+### Installation
 
-None as far as I'm aware.
+After downloading the zip, extract into a folder and then install to the /usr/share/ directory by running:
+```bash
+sudo make install
+```
+
+To uninstall use:
+```bash
+sudo make uninstall
+```
 
 ### Usage
 
-After downloading the zip, extract into a folder and then run using the following in a terminal:
+To run PFP to generate a normal list of puns from a word:
 ```bash
-./pfp [word to make a pun from]
+pfp <word to make puns from>
 ```
 
-Extra command line options are available and are given by the command help using
+To view the command help use:
 ```bash
-./pfp -h
+pfp -h
 ```
 
 ### Adding more phrases
