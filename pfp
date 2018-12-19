@@ -12,13 +12,14 @@ phraseFolder = "./phrases/"
 badSwaps = ["that", "the"]
 
 verbose = 0
-monochrome = False
+monochrome = True
 listAll = False
 quiet = False
 justChecking = False
+maxOutput = 0
 
 brightRed = "\033[91m"
-brightGreen = "\033[92m"
+brightGreen = "\033[92m"''
 brightYellow = "\033[93m"
 normalRed = "\033[31m"
 normalGreen = "\033[32m"
@@ -155,6 +156,7 @@ def processArgs(argsList):
     global monochrome
     global quiet
     global justChecking
+    global maxOutput
 
     i = 0
     while i < len(argsList):
@@ -162,21 +164,26 @@ def processArgs(argsList):
         if argsList[i] in ["-h", "--help", "-help", "--h"]:
 
             print("---------------------------------------------------------------------")
-            print("                               Usage")
+            print("                               Usage                                 ")
             print("---------------------------------------------------------------------")
-            print(" pfp [<flags>] <word>   generates a list of puns using this word")
+            print("                                                                     ")
+            print(" pfp [<flags>] <word>   generate a list of puns from a word          ")
+            print("                                                                     ")
             print("---------------------------------------------------------------------")
-            print("                           Optional Flags")
+            print("                           Optional Flags                            ")
             print("---------------------------------------------------------------------")
-            print(" -h                   print this help message")
-            print(" -d <directory>       specify the dictionary directory")
-            print(" -p <directory>       specify the phrase directory")
-            print(" -l                   list extra info about each pun")
-            print(" -m                   monochrome, don't use colour output")
-            print(" -c                   check, just check the files for errors, no puns")
-            print(" -q                   quiet, don't print unknown word messages")
-            print(" -v                   verbose output")
-            print(" -vv                  extra verbose output, warning: outputs a lot")
+            print("                                                                     ")
+            print(" -h --help             print this help message")
+            print(" -l --list             list extra info about each pun")
+            print(" -m --max <max puns>   limit the amount of puns")
+            print(" -c --colour --color   coloured output (ANSI)")
+            print(" -q --quiet            quiet, don't print warnings")
+            print(" -d <directory>        specify the dictionary directory")
+            print(" -p <directory>        specify the phrase directory")
+            print(" -v --verbose          verbose output")
+            print(" -vv --vverbose        extra verbose output, warning: outputs a lot")
+            print(" -j --check            just check the files for errors, no puns")
+            print("                                                                     ")
             return False
 
         elif argsList[i] in ["-w"]:
@@ -201,14 +208,22 @@ def processArgs(argsList):
 
             else: print("ERROR - not a valid directory: " + argsList[i+1])
 
-        elif argsList[i] in ["-v"]: verbose += 1
-        elif argsList[i] in ["-m"]: monochrome = True
-        elif argsList[i] in ["-l"]: listAll = True
-        elif argsList[i] in ["-q"]: quiet = True
-        elif argsList[i] in ["-c"]: justChecking = True
+        elif argsList[i] in ["-m"]:
+
+            if isInt(argsList[i+1]):
+
+                maxOutput = int(argsList[i+1])
+
+            else: print("ERROR - not a valid integer: " + argsList[i+1])
+
+        elif argsList[i] in ["-v", "--quiet"]: verbose += 1
+        elif argsList[i] in ["-c", "--colour", "--color"]: monochrome = False
+        elif argsList[i] in ["-l", "--list"]: listAll = True
+        elif argsList[i] in ["-q", "--quiet"]: quiet = True
+        elif argsList[i] in ["-j", "--check"]: justChecking = True
 
         # If mutliple options are given as one flag, split them and recurse
-        elif argsList[i][0] == "-":
+        elif argsList[i][0] == "-" and argsList[i][1] != "-":
 
             newArgString = ""
             for char in argsList[i][1:]:
@@ -222,9 +237,23 @@ def processArgs(argsList):
 
             processArgs(newArgString.strip().split())
 
+        elif argsList[i][0:2] == "--":
+
+            print("ERROR - not a valid flag: -" + argsList[i][3:])
+            return False
+
         i += 1
 
+
     return True
+
+def isInt(string):
+
+    try:
+        int(string)
+        return True
+    except Exception as e:
+        return False
 
 def sortFunction(pun):
 
@@ -270,7 +299,9 @@ if __name__ == "__main__":
     puns = generatePuns(wordToUse)
     puns.sort(key=sortFunction)
 
-    for pun in puns:
+    for i in range(len(puns)):
+
+        pun = puns[i]
 
         colorCode = ""
         if not monochrome:
@@ -286,3 +317,5 @@ if __name__ == "__main__":
         else:
 
             print(colorCode + str(pun["pun"]))
+
+        if maxOutput is not 0 and i >= maxOutput-1: break
