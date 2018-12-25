@@ -38,8 +38,6 @@ To run PFP to generate a single random pun from a word, with extra info about wh
 pfp -rl -m 1 <word>
 ```
 
-
-
 ### Adding more phrases
 
 The phrases folder initially comes with several files containing many common English idioms, movies quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory.
