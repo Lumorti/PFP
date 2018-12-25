@@ -10,7 +10,7 @@ wordList = {}
 wordFolder = "./dicts/"
 phraseFolder = "./phrases/"
 
-badSwaps = ["that", "the"]
+badSwaps = ["that", "the", "a", "an", "it", "those", "this"]
 
 verbose = 0
 monochrome = True
@@ -113,7 +113,11 @@ def similiarity(phonemes1, phonemes2):
     if (same >= 2) or (same >= 1 and shorterLength <= 2 and len(phonemes1) == len(phonemes2)):
         return 3
 
-    # Check for partial
+    # Check for the word being similiar (e.g. Luke and look)
+    if len(phonemes1) == len(phonemes2) and phonemes1[0] == phonemes2[0] and phonemes1[-1] == phonemes2[-1]:
+        return 2
+
+    # Check for the word being inside the other word
     if " ".join("phonemes2") in " ".join("phonemes1"):
         return 1
 
