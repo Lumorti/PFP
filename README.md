@@ -40,9 +40,9 @@ pfp -rl -m 1 <word>
 
 ### Adding more phrases
 
-The phrases folder initially comes with several files containing many common English idioms, movies quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory.
+The phrases folder initially comes with several files containing many common idioms, movie quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory. 
 
-Use hashes to state where the following phrases should come from, as follows:
+Use hashes to state where the following phrases come from, as follows:
 
 ```
 # <Movie 1 Title>
