@@ -22,9 +22,9 @@ To run PFP to generate a normal list of puns from a word:
 pfp <word>
 ```
 
-To view the command help use:
+There are many command flags to control the output. To view the available options use:
 ```bash
-pfp -h
+pfp --help
 ```
 
 ### Adding more phrases
