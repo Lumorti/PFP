@@ -17,12 +17,22 @@ sudo make uninstall
 
 ### Usage
 
-To run PFP to generate a normal list of puns from a word:
+To run PFP to generate 5 random puns from a word:
+```bash
+pfp -r -m 5 <word>
+```
+
+To run PFP to generate the complete ordered list of puns from a word:
 ```bash
 pfp <word>
 ```
 
-There are many command flags to control the output. To view the available options use:
+To run PFP to generate a single random pun from a word, with extra info about where the pun came from:
+```bash
+pfp -rl -m 1 <word>
+```
+
+There are many other command flags to control the output. To view the available options use:
 ```bash
 pfp --help
 ```
