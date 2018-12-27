@@ -5,7 +5,7 @@ A command line tool for generating puns from a certain word.
 
 ### Installation
 
-After downloading the zip, extract into a folder and then install to the /usr/share/ directory by running:
+After downloading the zip, extract into a folder and then install to the /usr/local/share/ directory by running:
 ```bash
 sudo make install
 ```
@@ -40,7 +40,7 @@ pfp -rl -m 1 <word>
 
 ### Adding more phrases
 
-The phrases folder initially comes with several files containing many common idioms, movie quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory. 
+The phrases folder initially comes with several files containing many common idioms, movie quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory.
 
 Use hashes to state where the following phrases come from, as follows:
 
