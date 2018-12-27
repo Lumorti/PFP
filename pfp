@@ -7,8 +7,8 @@ from random import randint
 phraseList = []
 wordList = {}
 
-wordFolder = "./dicts/"
-phraseFolder = "./phrases/"
+wordFolder = "/usr/local/share/pfp/dicts/"
+phraseFolder = "/usr/local/share/pfp/phrases/"
 
 badSwaps = ["that", "the", "a", "an", "it", "those", "this"]
 
