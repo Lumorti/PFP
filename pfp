@@ -20,6 +20,7 @@ justChecking = False
 justWord = False
 randomOrder = False
 maxOutput = 0
+wordToUse = ""
 
 brightRed = "\033[91m"
 brightGreen = "\033[92m"''
@@ -166,6 +167,7 @@ def processArgs(argsList):
     global justWord
     global randomOrder
     global maxOutput
+    global wordToUse
 
     i = 0
     while i < len(argsList):
@@ -265,6 +267,10 @@ def processArgs(argsList):
             print("ERROR - not a valid flag: -" + argsList[i][3:])
             return False
 
+        else:
+
+            wordToUse = argsList[i]
+
         i += 1
 
 
@@ -293,8 +299,7 @@ if __name__ == "__main__":
     # Process any other arguments
     if not processArgs(sys.argv[1:len(sys.argv)]): exit()
 
-    # Get the word to make puns from
-    wordToUse = "".join(sys.argv[len(sys.argv)-1:])
+    # Ensure there's a word to make puns from
     if len(wordToUse.strip()) <= 1:
 
         print("ERROR - please specify a word to generate puns from")
@@ -353,7 +358,7 @@ if __name__ == "__main__":
 
         if listAll:
 
-            print(colorCode + str(pun["pun"]) + " (replaced '" + str(pun["originalWord"]) + "' - origin: " + str(pun["origin"]) + ")")
+            print(colorCode + str(pun["pun"]) + " (replaced: '" + str(pun["originalWord"]) + "', origin: " + str(pun["origin"]) + ", quality: " + str(pun["similiarity"]) + ")")
 
         else:
 
