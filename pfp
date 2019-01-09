@@ -100,7 +100,7 @@ def similiarity(phonemes1, phonemes2):
 
     # Check for same
     if "".join(phonemes1) == "".join(phonemes2):
-        return 2
+        return 1
 
     # Check for rhyme
     i = 1
@@ -137,7 +137,7 @@ def generatePuns(word):
         while j < len(phrase["phonemes"]):
 
             phrasePhonemes = phrase["phonemes"][j]
-            sim = similiarity(phrasePhonemes, wordPhonemes)
+            sim = quality(phrasePhonemes, wordPhonemes)
             if (verbose >= 1 and sim >= 1) or verbose >= 2:
 
                 print("comparing " + str(phrase["words"][j]) + " " + str(phrasePhonemes) + " and " + str(word) + " " + str(wordPhonemes) + " returns " + str(sim))
@@ -148,7 +148,7 @@ def generatePuns(word):
 
                 punText = phrase["original"].replace(phrase["words"][j], word).replace(phrase["words"][j].capitalize(), word)
                 punText = punText[0].capitalize() + punText[1:]
-                pun = {"pun": punText, "similiarity": sim, "origin": phrase["origin"], "originalWord": phrase["words"][j], "file": phrase["file"]}
+                pun = {"pun": punText, "quality": sim, "origin": phrase["origin"], "originalWord": phrase["words"][j], "file": phrase["file"]}
                 punList.append(pun)
                 break
 
@@ -159,14 +159,8 @@ def generatePuns(word):
 # Process the arguments passed to the program, returning boolean of whether to continue or not
 def processArgs(argsList):
 
-    global verbose
-    global listAll
-    global monochrome
-    global quiet
-    global justChecking
-    global justWord
-    global randomOrder
-    global maxOutput
+    global listAll, monochrome, maxOutput, randomOrder, quiet
+    global verbose, justChecking, justWord
     global wordToUse
 
     i = 0
@@ -286,7 +280,7 @@ def isInt(string):
 
 def sortFunction(pun):
 
-    return - 10000 * pun["similiarity"] + len(pun["pun"])
+    return - 10000 * pun["quality"] + len(pun["pun"])
 
 if __name__ == "__main__":
 
@@ -352,13 +346,13 @@ if __name__ == "__main__":
         colorCode = ""
         if not monochrome:
 
-            if pun["similiarity"] == 3: colorCode = brightGreen
-            elif pun["similiarity"] == 2: colorCode = brightYellow
-            elif pun["similiarity"] == 1: colorCode = brightRed
+            if pun["quality"] == 3: colorCode = brightGreen
+            elif pun["quality"] == 2: colorCode = brightYellow
+            elif pun["quality"] == 1: colorCode = brightRed
 
         if listAll:
 
-            print(colorCode + str(pun["pun"]) + " (replaced: '" + str(pun["originalWord"]) + "', origin: " + str(pun["origin"]) + ", quality: " + str(pun["similiarity"]) + ")")
+            print(colorCode + str(pun["pun"]) + " (replaced: '" + str(pun["originalWord"]) + "', origin: " + str(pun["origin"]) + ", quality: " + str(pun["quality"]) + ")")
 
         else:
 
