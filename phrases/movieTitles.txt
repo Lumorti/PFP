@@ -1,6 +1,7 @@
 # Movie Title
 Star Wars: The Last Jedi
 Star Wars: The Force Awakens
+Star Wars: A New Hope
 Dirty Harry
 Lord of the Rings
 Beetlejuice
@@ -22,3 +23,22 @@ Fight Club
 Karate Kid
 Pulp Fiction
 Scott Pilgrim Vs The World
+Ocean's Eleven
+Ocean's Twelve
+Ocean's Thirteen
+Harry Potter and the Prisoner of Azkaban
+Harry Potter and the Chamber of Secrets
+Harry Potter and the Deathly Hallows
+Harry Potter and the Philosopher's Stone
+Harry Potter and the Half-Blood Prince
+No Country For Old Men
+X Men
+How to Train Your Dragon
+Spider Man
+Iron Man
+Planet of the Apes
+The Hunger Games
+Pirates of the Caribbean
+James Bond
+Captain America: the Winter Soldier
+Mad Max: Fury Road
