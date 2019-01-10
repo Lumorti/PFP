@@ -48,6 +48,7 @@ def loadPhrases(filename):
 
             fixedLine = line.strip()
             fixedLine = fixedLine.replace(",", " , ")
+            fixedLine = fixedLine.replace("-", " - ")
             fixedLine = fixedLine.replace(".", " . ")
             fixedLine = fixedLine.replace("?", " ? ")
             fixedLine = fixedLine.replace("!", " ! ")
@@ -82,7 +83,7 @@ def determinePronunciation(phrase):
 
             phonemes.append(wordList[word])
 
-        elif word not in [".", "!", "?", ",", ":"]:
+        elif word not in [".", "!", "?", ",", ":", "-"]:
 
             if not quiet: print("WARNING - unknown word: " + word)
             phonemes.append([])
@@ -128,7 +129,7 @@ def similiarity(phonemes1, phonemes2):
 # The main function, generate a list of puns for a word
 def generatePuns(word):
 
-    wordPhonemes = determinePronunciation(word)[0]
+    wordPhonemes = determinePronunciation(word)[-1]
     punList = []
 
     for phrase in phraseList:
@@ -137,20 +138,23 @@ def generatePuns(word):
         while j < len(phrase["phonemes"]):
 
             phrasePhonemes = phrase["phonemes"][j]
-            sim = similiarity(phrasePhonemes, wordPhonemes)
-            if (verbose >= 1 and sim >= 1) or verbose >= 2:
 
-                print("comparing " + str(phrase["words"][j]) + " " + str(phrasePhonemes) + " and " + str(word) + " " + str(wordPhonemes) + " returns " + str(sim))
+            if len(phrasePhonemes) > 0:
 
-            if sim >= 1:
+                sim = similiarity(phrasePhonemes, wordPhonemes)
+                if (verbose >= 1 and sim >= 1) or verbose >= 2:
 
-                if phrase["words"][j].lower() in badSwaps: sim = 1
+                    print("comparing " + str(phrase["words"][j]) + " " + str(phrasePhonemes) + " and " + str(word) + " " + str(wordPhonemes) + " returns " + str(sim))
 
-                punText = phrase["original"].replace(phrase["words"][j], word).replace(phrase["words"][j].capitalize(), word)
-                punText = punText[0].capitalize() + punText[1:]
-                pun = {"pun": punText, "quality": sim, "origin": phrase["origin"], "originalWord": phrase["words"][j], "file": phrase["file"]}
-                punList.append(pun)
-                break
+                if sim >= 1:
+
+                    if phrase["words"][j].lower() in badSwaps: sim = 1
+
+                    punText = phrase["original"].replace(phrase["words"][j], word).replace(phrase["words"][j].capitalize(), word)
+                    punText = punText[0].capitalize() + punText[1:]
+                    pun = {"pun": punText, "quality": sim, "origin": phrase["origin"], "originalWord": phrase["words"][j], "file": phrase["file"]}
+                    punList.append(pun)
+                    break
 
             j += 1
 
@@ -263,7 +267,7 @@ def processArgs(argsList):
 
         else:
 
-            wordToUse = argsList[i]
+            wordToUse += argsList[i] + " "
 
         i += 1
 
@@ -293,6 +297,8 @@ if __name__ == "__main__":
     # Process any other arguments
     if not processArgs(sys.argv[1:len(sys.argv)]): exit()
 
+    wordToUse = wordToUse.strip()
+
     # Ensure there's a word to make puns from
     if len(wordToUse.strip()) <= 1:
 
@@ -312,23 +318,31 @@ if __name__ == "__main__":
         print("Loaded " + str(len(wordList)) + " words")
         print("Loaded " + str(len(phraseList)) + " phrases")
 
-    phonemes = determinePronunciation(wordToUse)[0]
+    wordsGiven = wordToUse.split()
 
-    if len(phonemes) <= 0:
-        print("ERROR - given word not in dictionary so cannot continue")
-        exit()
+    puns = []
 
-    if justWord:
-        print("Pronounciation of " + wordToUse + " is " + str(phonemes))
-        exit()
+    for word in wordsGiven:
 
-    if justChecking: exit()
+        phonemes = determinePronunciation(word)[-1]
 
-    if verbose >= 1:
-        print("Generating puns for: " + wordToUse + str(phonemes))
+        if len(phonemes) <= 0:
+            print("ERROR - given word not in dictionary so cannot continue")
+            exit()
 
-    # Generate puns and output
-    puns = generatePuns(wordToUse)
+        if justWord:
+            print("Pronounciation of " + word + " is " + str(phonemes))
+            exit()
+
+        if justChecking: exit()
+
+        if verbose >= 1:
+            print("Generating puns for: " + word + str(phonemes))
+
+        # Generate puns and output
+        punsList = generatePuns(word)
+        puns.extend(punsList)
+
     puns.sort(key=sortFunction)
 
     if verbose >= 1:
