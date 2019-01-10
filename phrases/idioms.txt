@@ -20,7 +20,6 @@ A fool and his money are soon parted
 A little knowledge is a dangerous thing
 A man's home is his castle
 A penny for your thoughts
-A penny saved is a penny earned
 A picture's worth a thousand words
 A rolling stone gathers no moss
 A rose, by any other name, would smell as sweet
@@ -72,135 +71,56 @@ Diamonds are a girl's best friend
 Divide and conquer
 Do unto others as you would have them do unto you
 Do unto others, but do it first
-Don't ask of others what you yourself can do
-Don't beat a dead horse
-Don't believe everything you hear
-Don't bet the rent on it
+Beating a dead horse
 Don't bite off more than you can chew
 Don't bite the hand that feeds you
-Don't borrow trouble
-Don't cast caution to the winds
-Don't change horses in midstream
-Don't confuse me with the facts
 Don't count your chickens before they're hatched
 Don't cry over spilt milk
-Don't cut off your nose to spite your face
-Don't do the crime if you can't do the time
-Don't eat yellow snow
-Don't feed the bears
-Don't forget your raincoat
-Don't get caught with your pants down
-Don't give up the ship
 Don't go against the grain
-Don't go off half cocked
-Don't go off the deep end
-Don't grab the tiger by the tail
 Don't kick a man when he's down
 Don't kill the goose that lays the golden egg
 Don't kill the messenger
 Don't knock it til you've tried it
 Don't let the cat out of the bag
-Don't live in a fool's paradise
 Don't look a gift horse in the mouth
-Don't look back. Something might be gaining on ya
-Don't make a federal case out of it
 Don't make a mountain out of a molehill
 Don't make promises you can't keep
-Don't nit pick
-Don't pick green fruit
 Don't pour salt on the wound
 Don't put all your eggs in one basket
-Don't put the cart before the horse
 Don't quit your day job
-Don't ride the fence
-Don't rob Peter to pay Paul
 Don't rub people the wrong way
 Don't send a boy to do a man's job
-Don't shoot until you see the whites of their eyes
-Don't spit into the wind
-Don't split hairs
-Don't start something you can't finish
-Don't sweat the small stuff
-Don't take any wooden nickels
-Don't take it lying down
 Don't throw out the baby with the bathwater
-Don't throw stones in the well you drink from
 Don't toot your own horn
-Don't tread on me
-Don't trust anyone over thirty
-Don't yell fire in a crowded theater
-Dreams die hard
-Drowning men catch at straws
-Dumb breeds dumb
-Dying is easy, comedy, that's hard
 Easy come, easy go
 Easy does it
 Every cloud has a silver lining
 Every dog has his day
 Every little bit helps
 Every man has his price
-Everybody's got a racket
 Everyone loves a clown
-Exemptions are the rule
-Evil takes many forms
-Expect a miracle everyday
 Expect the unexpected
-Experience is the best teacher
-Failure is no crime, too low an aim is
-Faint heart never won fair maiden
-Fair is fair
 Fake it until you make it
-Fame is fleeting
 Familiarity breeds contempt
-Fast cars, faster women
-Fate is the hunter
-Father knows best
-Fear of God is the beginning of wisdom
-Feed a cold, starve a fever
-F.I.G.M.O
 Finders keepers, losers weepers
 First come, first served
 First impressions are the strongest
 First things first
-Fish and guests. Both stink in three days
-Follow the drinking gourd
 Follow the money
 Follow your dreams
 Follow your heart
-Force begets force
-Form follows function
 Fortune favors the brave
-Frailty, thy name is woman
 Garbage in, garbage out
 Get a life
-Get real
 Get the lead out
-Get thee behind me Satan
 Get with the program
 Get your kicks on route
 Getting there is half the fun
-Gimme that old time religion
-Girlfriends bring fun. Wives bring happiness
-Give a little, get a little
-Give a man a fish
+Give a man a fish, you feed him for a day
 Give them an inch, and they'll take a mile
-Give the devil his due
-Go ahead, make my day
-Go west young man
-Go where the money is
-God, guts and guns
-God heals, and the doctor takes the fee
 Gone, but not forgotten
-Good enough for government work
-Good fences make good neighbors
 Good things come in small packages
-Good things, when short, are twice as good
-Gravity sucks
-Happiness walks on busy feet
-Hard work never hurt nobody
-Haste makes waste
 Have a nice day
-He is armed without who is innocent within
 He who fights and runs away, lives to fight another day
 He who laughs last, laughs best
 He who lives by the sword, dies by the sword
@@ -209,39 +129,22 @@ Here today, gone tomorrow
 He's not the only fish in the sea
 Hindsight is twenty twenty
 History repeats itself
-Hit them low, and hit them hard
 Home is where the heart is
 Home sweet home
 Honesty is the best policy
-Hope is the parent of faith
-Hope springs eternal
 How the mighty have fallen
 I came, I saw, I conquered
-I have not yet begun to fight
-I owe, I owe, so off to work I go
-I shall return
-I would rather be RIGHT than president
-Idle hands are the devil's tools
-Idle minds are the devil's workshop
 If at first you don't succeed, try, try again
 If attacked by a bear, play dead
 If it ain't broke, don't fix it
-If it bleeds, it leads
-If it feels good, do it
 Sounds too good to be true
 If looks could kill
-If man were meant to fly, he'd have wings
 If the shoe fits, wear it
-If the van is rocking, don't come knocking
 If you can't beat them, join them
 If you can't take the heat, stay out of the kitchen
-If you don't work, you don't eat
-If you gotta ask, you can't afford it
 If you lie down with dogs, you wake up with fleas
 Ignorance is bliss
 Ignorance of the law is no excuse
-Ignore alien transmissions
-I'll be back
 I'm okay, you're okay
 Image is everything
 Imagination is more important than science
@@ -274,9 +177,7 @@ It's not nice to fool Mother Nature
 It's not polite to stare
 It's not the age, it's the mileage
 It's not the heat, it's the humidity
-It's not WHAT you know, it's WHO you know
 It's not whether you win or lose, but how you play the game
-It's what you DON'T see that matters
 Jack of all trades, master of none
 Jesus saves
 Judge not, lest ye be judged
@@ -360,7 +261,6 @@ Necessity never made a good bargain
 Neither a borrower nor a lender be
 Neither cast your pearls before swine
 Never ask a barber if you need a haircut
-Never ASSUME, because that makes an ass out of you and me
 Never look directly into the sun
 Never miss a good chance to shut up
 Never say die
