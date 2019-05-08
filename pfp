@@ -137,7 +137,7 @@ def generatePuns(word):
         while j < len(phrase["phonemes"]):
 
             phrasePhonemes = phrase["phonemes"][j]
-            sim = quality(phrasePhonemes, wordPhonemes)
+            sim = similiarity(phrasePhonemes, wordPhonemes)
             if (verbose >= 1 and sim >= 1) or verbose >= 2:
 
                 print("comparing " + str(phrase["words"][j]) + " " + str(phrasePhonemes) + " and " + str(word) + " " + str(wordPhonemes) + " returns " + str(sim))
