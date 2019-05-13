@@ -2,7 +2,6 @@
 May the Force be with you
 Luke, I am your father
 Its treason then
-Chewie, were home
 Help me, Obi-Wan Kenobi. You're my only hope
 In a galaxy, far, far away
 Use the force, Luke!
@@ -35,6 +34,15 @@ My precious!
 Fly you fools!
 They're taking the hobbits to Isengard!
 YOU SHALL NOT PASS!
+One does not simply walk into Mordor
+
+# Inception
+We need to go deeper
+
+# Avengers
+We're in the endgame now
+Perfectly balanced, as all things should be
+The hardest choices require the strongest wills
 
 # Beetlejuice
 Beetlejuice, Beetlejuice, Beetlejuice!
@@ -64,9 +72,10 @@ Life is like a box of chocolates
 
 # The Matrix
 I know kung fu
+There is no spoon
 
 # Taxi Driver
-You talkin' to me?
+You talking to me?
 
 # The Terminator
 I'll be back
@@ -135,6 +144,13 @@ I'm sorry Dave, I'm afraid I can't let you do that
 They call it a Royale with Cheese
 Say what again
 
+# The Princess Bride
+You've fallen victim to one of the classic blunders!
+My name is Inigo Montoya. You killed my father. Prepare to die.
+
 # Monty Python
+Tis but a scratch
+It's just a flesh wound
+What is the air velocity of an unladen swallow?
 Nobody expects the Spanish inquisition!
 Your mother was a hamster, and your father smelt of elderberries!

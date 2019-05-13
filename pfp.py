@@ -304,16 +304,20 @@ if __name__ == "__main__":
     wordToUse = wordToUse.strip()
 
     # Ensure there's a word to make puns from
-    if len(wordToUse.strip()) <= 1:
+    if len(wordToUse.strip()) <= 1 and not justChecking:
 
         print("ERROR - please specify a word to generate puns from")
         exit()
 
     # Load the dictionaries
+    if not os.path.isdir(wordFolder): wordFolder = "./dicts"
+    if not os.path.isdir(wordFolder): print("ERROR - not a valid directory: " + wordFolder)
     wordFiles = os.listdir(wordFolder)
     for file in wordFiles: loadWords(wordFolder + "/" + file)
 
     # Load the phrase lists
+    if not os.path.isdir(phraseFolder): phraseFolder = "./phrases"
+    if not os.path.isdir(phraseFolder): print("ERROR - not a valid directory: " + phraseFolder)
     phraseFile = os.listdir(phraseFolder)
     for file in phraseFile: loadPhrases(phraseFolder + "/" + file)
 
