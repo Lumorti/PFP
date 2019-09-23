@@ -61,4 +61,4 @@ Use hashes to state where the following phrases come from, as follows:
 
 ### DISCLAIMER
 
-I don't own or claim to own any of the quotes/names/phrases in the phrases folder, nor any words in the dictionaries. I make no money from this and all quotes have the name of their source along with them. Searching any of these quotes will bring up millions of uses in online articles and other transformative work.
+I don't own or claim to own any of the quotes/names/phrases in the phrases folder, nor any words in the dictionaries. I make no money from this and all quotes have the name of their source along with them.
