@@ -1,43 +1,42 @@
-# PFP
-Pun, Forrest, Pun!
+# PFP - Pun, Forrest, Pun!
 
 A command line tool for generating puns from a certain word.
 
-### Installation on Linux
-
-Download the zip of the source, extract into a folder and then install to the /usr/local/share/pfp directory by running the following in the extracted folder:
-```bash
-sudo make install
-```
-
-To uninstall use in either the extracted folder or in /usr/local/share/pfp:
-```bash
-sudo make uninstall
-```
-
-### Usage
+## Usage
 
 To view basic usage and the available flags use:
 ```bash
 pfp --help
 ```
 
-To run PFP to generate the complete ordered list of puns from a word:
+To run PFP to generate the complete list of puns from a word, ordered by quality:
 ```bash
 pfp <word>
 ```
 
-To run PFP to generate a maximum of 5 random puns from a word:
+To also show info about where each pun comes from:
 ```bash
-pfp -r -m 5 <word>
+pfp -l <word>
 ```
 
-To run PFP to generate a single random (but at least quality 2) pun from a word, with extra info about where the pun came from:
+To generate a single random (but at least quality 2) pun from a word:
 ```bash
-pfp -rl -m 1 -t 2 <word>
+pfp -r -m 1 -t 2 <word>
 ```
 
-### Adding more phrases
+## Installation
+
+For easy access anywhere on your system it can be installed to /usr/local/share/pfp using the following:
+```bash
+sudo make install
+```
+
+To uninstall:
+```bash
+sudo make uninstall
+```
+
+## Adding more phrases
 
 The phrases folder initially comes with several files containing many common idioms, movie quotes and various other recognisable phrases. To add your own simply add to these files or make another file in that directory.
 
@@ -58,7 +57,3 @@ Use hashes to state where the following phrases come from, as follows:
 # <Song Name>
 <Famous lyric from this song>
 ```
-
-### DISCLAIMER
-
-I don't own or claim to own any of the quotes/names/phrases in the phrases folder, nor any words in the dictionaries. I make no money from this and all quotes have the name of their source along with them.
